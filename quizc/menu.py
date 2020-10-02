@@ -1,5 +1,5 @@
 from quizc.console.quiz_ui_handler import *
-
+import json
 
 class Menu(object):
     MENU_PROMPT = "> "
@@ -16,7 +16,8 @@ Quizc - A command quiz utility
 1. Create quiz
 2. Fill quiz
 3. Show quiz
-4. Exit
+4. Open quiz
+5. Exit
 ======================================
         """)
 
@@ -37,6 +38,11 @@ Quizc - A command quiz utility
             else:
                 QuizUIHandler.show_quiz(self.quiz_answers)
         elif option == "4":
+            f = open("myform.json", "r")
+            res = json.load(f)
+            print(res)
+            f.close()
+        elif option == "5":
             should_exit = True
 
         return should_exit
